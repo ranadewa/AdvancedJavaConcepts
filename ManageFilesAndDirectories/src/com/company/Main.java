@@ -21,5 +21,27 @@ public class Main {
             System.out.println(e);
         }
 
+        Path deletPath = Paths.get("Files/new.txt");
+
+        try {
+            Files.delete(deletPath);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        Path newDir = Paths.get("Files/NewDir");
+
+        try {
+            Files.createDirectories(newDir);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        try {
+            Files.move(filePath, newDir.resolve(filePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            System.out.println(e);
+        };
+
     }
 }
